@@ -1,3 +1,8 @@
 header{
     background-color: plum;
 }
+
+#name{
+    margin: 0;
+    padding: 0;
+}

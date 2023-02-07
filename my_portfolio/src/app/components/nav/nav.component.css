@@ -2,6 +2,9 @@
     background-color: mediumorchid;
     padding: 1rem;
     align-self: flex-end;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
 }
 
 ul{

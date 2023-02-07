@@ -1,13 +1,7 @@
 <div class="nav">
-    <nav>
-        <ul>
-            <li>project 1</li>
-            <li>project 2</li>
-            <li>project 3</li>
-            <li>project 4</li>
-            <li>project 4</li>
-            <li>project 4</li>
-            <li>project 4</li>
-        </ul>
-    </nav>
+    <app-project 
+        text="{{ project.name }}" 
+        (projectClick)="toggleProject(project.name)" 
+        *ngFor="let project of project">
+    </app-project>
 </div>

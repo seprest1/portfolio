@@ -1,0 +1,5 @@
+.projectButton:hover{
+    color: red;
+    cursor: pointer;
+    background-color: beige;
+}
