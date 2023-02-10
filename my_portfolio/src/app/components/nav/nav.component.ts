@@ -17,4 +17,6 @@ export class NavComponent implements OnInit{
   toggleProject(projectName){
     console.log(projectName);
   }
+
+  displayElement = true;
 }

@@ -1,8 +1,15 @@
-header{
-    background-color: plum;
-}
 
 #name{
-    margin: 0;
-    padding: 0;
+    color: whitesmoke;
+    font-weight: 200;
+    letter-spacing: 0.4rem;
+    padding: 2%;
+    margin: 1%;
+    transition-duration: 100ms;
+}
+
+#name:hover{
+    font-weight: 400;
+    color: rgba(245, 245, 245, 0.596);
+    filter: blur(0.5px);
 }

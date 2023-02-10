@@ -2,8 +2,12 @@
   <video autoplay muted loop id="backgroundVideo" oncanplay="this.play()" onloadedmetadata="this.muted = true"> 
     <source src="assets/images/glitch.mp4" type="video/mp4">
   </video>
-  <app-header></app-header>
-  <app-nav></app-nav>
+  <div id="main">
+    <app-header id="header"></app-header>
+    <div id="backgroundAnimation">hi</div>
+  </div>
+  <app-nav id="nav"></app-nav>
+
 </div>
 
 <router-outlet></router-outlet>
