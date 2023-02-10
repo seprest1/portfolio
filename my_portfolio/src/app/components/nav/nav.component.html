@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <p class="navButton">About</p>
+    <p class="navButton">Portfolio</p>
+    <p class="navButton">Contact</p>
+    
+    <app-project 
+        class="navButton"
+        text="{{ project.name }}" 
+        (projectClick)="toggleProject(project.name)" 
+        *ngFor="let project of project">
+    </app-project>
+    
+</div>
