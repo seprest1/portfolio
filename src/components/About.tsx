@@ -116,7 +116,7 @@ export default function About() {
         </TextContainer>
         <ImageContainer>
           <ProfileImage
-            src="/public/headshot.jpeg"
+            src="/headshot.jpeg"
             alt="Sarah Preston"
           />
         </ImageContainer>

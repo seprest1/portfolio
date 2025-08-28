@@ -16,7 +16,7 @@ const BackgroundImage = styled('div', {
   left: 0,
   width: '100%',
   height: '100%',
-  backgroundImage: 'url(../public/chamomile.jpeg)',
+  backgroundImage: 'url(/chamomile.jpeg)',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   animation: `${backgroundZoom} 15s ease-in-out infinite alternate`,
