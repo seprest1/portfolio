@@ -17,7 +17,7 @@
     "@radix-ui/themes": "^3.2.1",
     "@stitches/react": "^1.2.8",
     "embla-carousel-react": "^8.6.0",
-    "express": "^5.1.0",
+    "express": "^4.21.2",
     "localforage": "^1.10.0",
     "match-sorter": "^8.1.0",
     "radix": "^0.0.0",
