@@ -6,13 +6,19 @@ import { slideInFromLeft } from '../styles/animations';
 
 // --- Styled Components ---
 const Container = styled('div', {
-  height: '100%',
-  padding: '$8',
-  maxWidth: '1200px',
-  margin: '0 auto',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
+  height: '100%',
+  maxWidth: '1200px',
+  margin: '0 auto',
+  // --- THE FIX ---
+  // Allow vertical scrolling if content is too tall
+  overflowY: 'auto',
+  padding: '$5 $4',
+  '@media (min-width: 768px)': {
+    padding: '$5 $8',
+  },
 });
 
 const AboutContainer = styled('div', {
@@ -20,7 +26,6 @@ const AboutContainer = styled('div', {
   gridTemplateColumns: '1fr',
   gap: '$5',
   alignItems: 'center',
-  paddingLeft: '$8',
   '@media (min-width: 768px)': {
     gridTemplateColumns: '2fr 1fr',
   },
@@ -30,15 +35,24 @@ const TextContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   gap: '$4',
+  '@media (min-width: 768px)': {
+    gridColumn: '1 / 2',
+    gridRow: '1',
+  },
 });
 
 const ImageContainer = styled('div', {
-  width: '20rem',
-  height: '20rem',
+  width: '15rem',
+  height: '15rem',
   margin: '0 auto',
   borderRadius: '100%',
   overflow: 'hidden',
   boxShadow: '0 10px 30px -15px rgba(0, 0, 0, 0.2)',
+  '@media (min-width: 768px)': {
+    width: '20rem',
+    height: '20rem',
+    gridColumn: '2 / 3',
+  },
 });
 
 const ProfileImage = styled('img', {
@@ -64,9 +78,11 @@ const Title = styled('h2', {
   fontWeight: '$4',
   color: '$textPrimary',
   marginBottom: '$4',
+  '@media (min-width: 280px)': {
+    fontSize: '$6',
+  },
 });
 
-// --- New component for the blurb titles ---
 const BlurbTitle = styled('h3', {
   fontSize: '$4',
   fontWeight: '$3',

@@ -107,7 +107,7 @@ export default function Nav() {
           }
         });
       },
-      { threshold: 0.5, rootMargin: '-50% 0px -50% 0px' }
+      { threshold: 0.5 }
     );
 
     const sections = navItems.map((item) => document.getElementById(item.id));
@@ -121,7 +121,7 @@ export default function Nav() {
       });
     };
   }, []);
-
+  
   return (
     <NavRoot>
       <NavHeader>

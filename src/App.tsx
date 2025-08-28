@@ -1,20 +1,25 @@
 import '@radix-ui/themes/styles.css';
 import { styled } from './styles/theme';
 import { globalStyles } from './styles/global';
-import { Flex, Section, Theme } from '@radix-ui/themes';
+import { Section, Theme } from '@radix-ui/themes';
 import Nav from './components/Nav';
 import { sections } from './constants/sections';
 
-const StyledContainer = styled('main', {
-  paddingLeft: '240px',
+const MainContentContainer = styled('main', {
+  marginLeft: '240px',
+  width: 'calc(100% - 240px)',
+
   '@bp1': {
-    paddingLeft: '0',
+    marginLeft: '0',
+    width: '100%',
   },
 });
 
 const StyledSection = styled(Section, {
-  scrollSnapAlign: 'start',
-  height: '100vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  minHeight: '100vh',
   padding: 0,
 });
 
@@ -28,21 +33,20 @@ export default function App() {
       panelBackground="solid"
       radius="full"
     >
-      <Flex>
+      <div style={{ overflow: 'hidden' }}>
         <Nav />
 
-        <StyledContainer>
+        <MainContentContainer>
           {sections.map((section) => (
             <StyledSection
               id={section.id}
               key={section.id}
-              style={{ height: '100vh' }}
             >
               {section.component}
             </StyledSection>
           ))}
-        </StyledContainer>
-      </Flex>
+        </MainContentContainer>
+      </div>
     </Theme>
   );
 }

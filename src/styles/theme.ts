@@ -69,6 +69,7 @@ export const { styled, globalCss, keyframes } = createStitches({
   },
   media: {
     bp1: '(max-width: 768px)',
+    bp2: '(max-width: 480px)',
   },
 });
 

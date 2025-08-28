@@ -1,8 +1,54 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Heading, Grid, Card, Text, Box, Flex, Badge, IconButton } from '@radix-ui/themes';
+import { Heading, Card, Text, Box, Flex, Badge, IconButton } from '@radix-ui/themes';
 import { ArrowLeftIcon, ArrowRightIcon } from '@radix-ui/react-icons';
-import { projects as projectData, type Project } from '../constants/projects';
+import { projects as projectData } from '../constants/projects';
+import type { Project } from '../constants/projects';
 import useEmblaCarousel from 'embla-carousel-react';
+import { styled } from '@stitches/react';
+
+const StyledCard = styled(Card, {
+  height: '100%',
+  minHeight: '400px',
+  padding: '1.5rem',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '2rem',
+  border: 'none',
+  borderWidth: 0,
+  '@media (max-width: 600px)': {
+   flexDirection: 'column',
+   minHeight: '700px',
+  },
+});
+
+const StyledImgContainer = styled('div', {
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
+  height: 'min-content',
+  position: 'relative',
+  borderRadius: '10px',
+  overflow: 'hidden',
+  '@media (max-width: 600px)': {
+    img: {
+      height: '500px',
+    }
+  },
+  img: {
+    objectFit: 'cover',
+    width: '100%',
+    maxHeight: '400px',
+    borderRadius: '10px',
+  },
+});
+
+const StyledContentContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+}); 
 
 function CarouselCard({ project }: { project: Project }) {
   return (
@@ -11,78 +57,59 @@ function CarouselCard({ project }: { project: Project }) {
         minWidth: '100%',
       }}
     >
-      <Card
-        style={{
-          padding: '1.5rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          border: 'none',
-          borderWidth: 0,
-        }}
-      >
-        <Grid
-          columns={{ initial: '2fr 1fr', sm: '1fr', md: '2fr 1fr' }}
-          gap="4"
-          align="center"
-        >
-          {/* Left Column: Image */}
-          <Box
-            style={{
-              width: '100%',
-              position: 'relative',
-              borderRadius: 'var(--radius-2)',
-              overflow: 'hidden',
-            }}
-          >
-            <img
-              src={project.imageUrl}
-              alt={project.title}
-              style={{
-                width: '100%',
-                objectFit: 'cover',
-                maxWidth: '100%',
-                maxHeight: '100%',
-              }}
-            />
-          </Box>
+      <StyledCard>
+        <StyledImgContainer>
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+          />
+        </StyledImgContainer>
 
-          {/* Right Column: Text Description */}
-          <Flex
-            direction="column"
-            gap="3"
+        <StyledContentContainer>
+          <Heading
+            as="h3"
+            size="5"
           >
-            <Heading
-              as="h3"
-              size="5"
-            >
-              {project.title}
-            </Heading>
-            <Text
-              as="p"
-              color="gray"
-            >
-              {project.description}
-            </Text>
-            <Flex
-              mt="3"
-              gap="2"
-            >
-              {project.tech.map((tag) => (
-                <Badge
-                  key={tag}
-                  color="jade"
-                >
-                  {tag}
-                </Badge>
-              ))}
-            </Flex>
+            {project.title}
+          </Heading>
+          <Text
+            as="p"
+            color="gray"
+          >
+            {project.description}
+          </Text>
+          <Flex
+            mt="3"
+            gap="2"
+          >
+            {project.tech.map((tag: string) => (
+              <Badge
+                key={tag}
+                color="jade"
+              >
+                {tag}
+              </Badge>
+            ))}
           </Flex>
-        </Grid>
-      </Card>
+        </StyledContentContainer>
+      </StyledCard>
     </Box>
   );
 }
+
+const StyledContainer = styled('div', {
+  height: '100%',
+  width: '80%',
+  margin: '0 auto',
+  padding: '0 1rem',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  '@media (max-width: 600px)': {
+    width: '100%',
+  },
+});
+
 export default function Projects() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -106,17 +133,7 @@ export default function Projects() {
   }, [emblaApi]);
 
   return (
-    <Box
-      style={{ 
-        height: '100%',
-        width: '80%',
-        margin: '0 auto',
-        padding: '0 1rem',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-      }}
-    >
+    <StyledContainer>
       <Heading
         as="h2"
         size="7"
@@ -127,8 +144,8 @@ export default function Projects() {
 
       {/* Carousel Container */}
       <Box
-        style={{ 
-          overflow: 'hidden', 
+        style={{
+          overflow: 'hidden',
           borderRadius: 'var(--radius-3)',
         }}
         ref={emblaRef}
@@ -193,6 +210,6 @@ export default function Projects() {
           />
         </IconButton>
       </Flex>
-    </Box>
+    </StyledContainer>
   );
 }

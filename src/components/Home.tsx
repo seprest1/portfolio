@@ -3,6 +3,7 @@ import { styled  } from '@stitches/react';
 import { fadeIn, backgroundZoom } from '../styles/animations';
 
 const HeroContainer = styled(Flex, {
+  minWidth: '100%',
   height: '100vh',
   textAlign: 'center',
   position: 'relative',
@@ -43,12 +44,18 @@ const Title = styled('h1', {
   fontWeight: '$4',
   color: 'white',
   textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+  '@media (min-width: 280px)': {
+    fontSize: '$7',
+  },
 });
 
 const Subtitle = styled('p', {
   fontSize: '$5',
   color: 'rgba(255, 255, 255, 0.9)',
   marginTop: '$1',
+  '@media (min-width: 280px)': {
+    fontSize: '$3',
+  },
 });
 
 const WIPBadge = styled('div', {

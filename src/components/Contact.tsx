@@ -3,7 +3,7 @@ import { LinkedInLogoIcon, GitHubLogoIcon, EnvelopeClosedIcon } from '@radix-ui/
 import { styled } from '../styles/theme';
 
 const Container = styled('div', {
-  height: '100%',
+  height: '100vh',
   padding: '0 25%',
   backgroundImage: 'url(https://images.pexels.com/photos/7233124/pexels-photo-7233124.jpeg)',
   backgroundSize: 'cover',
@@ -14,7 +14,7 @@ const Container = styled('div', {
 });
 
 const Banner = styled('div', {
-  width: '100%',
+  height: '100vh',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
